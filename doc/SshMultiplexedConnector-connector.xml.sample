@@ -1,0 +1,6 @@
+<!-- BEGIN_INCLUDE(sshmultiplexedconnector:send) -->
+    <sshmultiplexedconnector:send content="#[map-payload:content]" username="#[map-payload:username]" password="#[map-payload:password]"/>
+<!-- END_INCLUDE(sshmultiplexedconnector:send) -->
+<!-- BEGIN_INCLUDE(sshmultiplexedconnector:release) -->
+<sshmultiplexedconnector:release username="#[map-payload:username]" />
+<!-- END_INCLUDE(sshmultiplexedconnector:release) -->

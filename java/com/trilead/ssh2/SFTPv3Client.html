@@ -1,0 +1,3265 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Cloud Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>
+
+  SFTPv3Client
+
+
+| Mule Cloud Connector
+
+</title>
+<link href="../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../", "../../../../assets/");
+</script>
+<script src="../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Cloud Connector</span>
+    
+    <ul id="header-tabs" class="">
+    
+    	<li id="guide"><a href="../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    
+    	<li id="java"><a href="../../../../java/packages.html">
+	    	<span class="en">Java API Reference</span>
+    	</a></li>
+    
+    	<li id="mule"><a href="../../../../mule/modules.html">
+	    	<span class="en">Mule API Reference</span>
+    	</a></li>
+    
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../java/classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="selected api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/package-summary.html">com.trilead.ssh2</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/auth/package-summary.html">com.trilead.ssh2.auth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/channel/package-summary.html">com.trilead.ssh2.channel</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/crypto/package-summary.html">com.trilead.ssh2.crypto</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/crypto/cipher/package-summary.html">com.trilead.ssh2.crypto.cipher</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/crypto/dh/package-summary.html">com.trilead.ssh2.crypto.dh</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/crypto/digest/package-summary.html">com.trilead.ssh2.crypto.digest</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/log/package-summary.html">com.trilead.ssh2.log</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/packets/package-summary.html">com.trilead.ssh2.packets</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/sftp/package-summary.html">com.trilead.ssh2.sftp</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/signature/package-summary.html">com.trilead.ssh2.signature</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/transport/package-summary.html">com.trilead.ssh2.transport</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/util/package-summary.html">com.trilead.ssh2.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/ssh/multiplexer/package-summary.html">org.mule.modules.ssh.multiplexer</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/ssh/multiplexer/config/package-summary.html">org.mule.modules.ssh.multiplexer.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/ssh/multiplexer/config/spring/package-summary.html">org.mule.modules.ssh.multiplexer.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/ssh/multiplexer/exception/package-summary.html">org.mule.modules.ssh.multiplexer.exception</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/ChannelCondition.html">ChannelCondition</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/ConnectionMonitor.html">ConnectionMonitor</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/DebugLogger.html">DebugLogger</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/InteractiveCallback.html">InteractiveCallback</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/ProxyData.html">ProxyData</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SelfConnectionProxyData.html">SelfConnectionProxyData</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/ServerHostKeyVerifier.html">ServerHostKeyVerifier</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/Connection.html">Connection</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/ConnectionInfo.html">ConnectionInfo</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/DHGexParameters.html">DHGexParameters</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/HTTPProxyData.html">HTTPProxyData</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/KnownHosts.html">KnownHosts</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/LocalPortForwarder.html">LocalPortForwarder</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/LocalStreamForwarder.html">LocalStreamForwarder</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SCPClient.html">SCPClient</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/Session.html">Session</a></li>
+          <li class="selected api apilevel-"><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">SFTPv3Client</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SFTPv3DirectoryEntry.html">SFTPv3DirectoryEntry</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/StreamConnection.html">StreamConnection</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/StreamGobbler.html">StreamGobbler</a></li>
+      </ul>
+    </li>
+              
+              
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/HTTPProxyException.html">HTTPProxyException</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SFTPException.html">SFTPException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+
+
+  <a href="#lfields">Fields</a>
+  
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1>SFTPv3Client</h1>
+
+
+
+  
+    extends <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">com.trilead.ssh2.SFTPv3Client</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>A <code>SFTPv3Client</code> represents a SFTP (protocol version 3)
+ client connection tunnelled over a SSH-2 connection. This is a very simple
+ (synchronous) implementation.
+ <p>
+ Basically, most methods in this class map directly to one of
+ the packet types described in draft-ietf-secsh-filexfer-02.txt.
+ <p>
+ Note: this is experimental code.
+ <p>
+ Error handling: the methods of this class throw IOExceptions. However, unless
+ there is catastrophic failure, exceptions of the type <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">SFTPv3Client</a></code> will
+ be thrown (a subclass of IOException). Therefore, you can implement more verbose
+ behavior by checking if a thrown exception if of this type. If yes, then you
+ can cast the exception and access detailed information about the failure. 
+ <p>
+ Notes about file names, directory names and paths, copy-pasted
+ from the specs:
+ <ul>
+ <li>SFTP v3 represents file names as strings. File names are
+ assumed to use the slash ('/') character as a directory separator.</li>
+ <li>File names starting with a slash are "absolute", and are relative to
+ the root of the file system.  Names starting with any other character
+ are relative to the user's default directory (home directory).</li>
+ <li>Servers SHOULD interpret a path name component ".." as referring to
+ the parent directory, and "." as referring to the current directory.
+ If the server implementation limits access to certain parts of the
+ file system, it must be extra careful in parsing file names when
+ enforcing such restrictions.  There have been numerous reported
+ security bugs where a ".." in a path name has allowed access outside
+ the intended area.</li>
+ <li>An empty path name is valid, and it refers to the user's default
+ directory (usually the user's home directory).</li>
+ </ul>
+ <p>
+ If you are still not tired then please go on and read the comment for
+ <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html#setCharset(java.lang.String)">setCharset(String)</a></code>.</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#charsetName">charsetName</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          final
+          <a href="../../../../java/com/trilead/ssh2/Connection.html">Connection</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#conn">conn</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          final
+          <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/PrintStream.html">PrintStream</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#debug">debug</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          boolean</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#flag_closed">flag_closed</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/InputStream.html">InputStream</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#is">is</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#next_request_id">next_request_id</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/OutputStream.html">OutputStream</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#os">os</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#protocol_version">protocol_version</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/util/HashMap.html">HashMap</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#server_extensions">server_extensions</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          final
+          <a href="../../../../java/com/trilead/ssh2/Session.html">Session</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#sess">sess</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+
+</table>
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#SFTPv3Client(com.trilead.ssh2.Connection, java.io.PrintStream)">SFTPv3Client</a></span>(<a href="../../../../java/com/trilead/ssh2/Connection.html">Connection</a> conn, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/PrintStream.html">PrintStream</a> debug)</nobr>
+        
+        <div class="jd-descrdiv">
+      <em>
+  This constructor is deprecated.
+      this constructor (debug version) will disappear in the future,
+             use <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html#SFTPv3Client(com.trilead.ssh2.Connection)">SFTPv3Client(Connection)</a></code> instead.
+</em></div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#SFTPv3Client(com.trilead.ssh2.Connection)">SFTPv3Client</a></span>(<a href="../../../../java/com/trilead/ssh2/Connection.html">Connection</a> conn)</nobr>
+        
+        <div class="jd-descrdiv">Create a SFTP v3 client.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#canonicalPath(java.lang.String)">canonicalPath</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> path)</nobr>
+        
+        <div class="jd-descrdiv">Have the server canonicalize any given path name to an absolute path.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#close()">close</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Close this SFTP session.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#closeFile(com.trilead.ssh2.SFTPv3FileHandle)">closeFile</a></span>(<a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a> handle)</nobr>
+        
+        <div class="jd-descrdiv">Close a file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#createFile(java.lang.String)">createFile</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName)</nobr>
+        
+        <div class="jd-descrdiv">Create a file and open it for reading and writing.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#createFile(java.lang.String, com.trilead.ssh2.SFTPv3FileAttributes)">createFile</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName, <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a> attr)</nobr>
+        
+        <div class="jd-descrdiv">Create a file and open it for reading and writing.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#createFileTruncate(java.lang.String, com.trilead.ssh2.SFTPv3FileAttributes)">createFileTruncate</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName, <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a> attr)</nobr>
+        
+        <div class="jd-descrdiv">reate a file (truncate it if it already exists) and open it for reading and writing.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#createFileTruncate(java.lang.String)">createFileTruncate</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName)</nobr>
+        
+        <div class="jd-descrdiv">Create a file (truncate it if it already exists) and open it for reading and writing.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#createSymlink(java.lang.String, java.lang.String)">createSymlink</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> src, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> target)</nobr>
+        
+        <div class="jd-descrdiv">Create a symbolic link on the server.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#fsetstat(com.trilead.ssh2.SFTPv3FileHandle, com.trilead.ssh2.SFTPv3FileAttributes)">fsetstat</a></span>(<a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a> handle, <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a> attr)</nobr>
+        
+        <div class="jd-descrdiv">Modify the attributes of a file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#fstat(com.trilead.ssh2.SFTPv3FileHandle)">fstat</a></span>(<a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a> handle)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve the file attributes of an open file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#getCharset()">getCharset</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">The currently used charset for filename encoding/decoding.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#getProtocolVersion()">getProtocolVersion</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the negotiated SFTP protocol version between the client and the server.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/util/Vector.html">Vector</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#ls(java.lang.String)">ls</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> dirName)</nobr>
+        
+        <div class="jd-descrdiv">List the contents of a directory.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#lstat(java.lang.String)">lstat</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> path)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve the file attributes of a file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#mkdir(java.lang.String, int)">mkdir</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> dirName, int posixPermissions)</nobr>
+        
+        <div class="jd-descrdiv">Create a new directory.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#mv(java.lang.String, java.lang.String)">mv</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> oldPath, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> newPath)</nobr>
+        
+        <div class="jd-descrdiv">Move a file or directory.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#openFileRO(java.lang.String)">openFileRO</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName)</nobr>
+        
+        <div class="jd-descrdiv">Open a file for reading.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#openFileRW(java.lang.String)">openFileRW</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName)</nobr>
+        
+        <div class="jd-descrdiv">Open a file for reading and writing.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#read(com.trilead.ssh2.SFTPv3FileHandle, long, byte[], int, int)">read</a></span>(<a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a> handle, long fileOffset, byte[] dst, int dstoff, int len)</nobr>
+        
+        <div class="jd-descrdiv">Read bytes from a file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#readLink(java.lang.String)">readLink</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> path)</nobr>
+        
+        <div class="jd-descrdiv">Read the target of a symbolic link.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#rm(java.lang.String)">rm</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName)</nobr>
+        
+        <div class="jd-descrdiv">Remove a file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#rmdir(java.lang.String)">rmdir</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> dirName)</nobr>
+        
+        <div class="jd-descrdiv">Remove an empty directory.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#setCharset(java.lang.String)">setCharset</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> charset)</nobr>
+        
+        <div class="jd-descrdiv">Set the charset used to convert between Java Unicode Strings and byte encodings
+ used by the server for paths and file names.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#setstat(java.lang.String, com.trilead.ssh2.SFTPv3FileAttributes)">setstat</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> path, <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a> attr)</nobr>
+        
+        <div class="jd-descrdiv">Modify the attributes of a file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#stat(java.lang.String)">stat</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> path)</nobr>
+        
+        <div class="jd-descrdiv">Retrieve the file attributes of a file.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#write(com.trilead.ssh2.SFTPv3FileHandle, long, byte[], int, int)">write</a></span>(<a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a> handle, long fileOffset, byte[] src, int srcoff, int len)</nobr>
+        
+        <div class="jd-descrdiv">Write bytes to a file.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a> arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="charsetName"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+      </span>
+        charsetName
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="conn"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+        final 
+        <a href="../../../../java/com/trilead/ssh2/Connection.html">Connection</a>
+      </span>
+        conn
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="debug"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+        final 
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/PrintStream.html">PrintStream</a>
+      </span>
+        debug
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="flag_closed"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        boolean
+      </span>
+        flag_closed
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="is"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/InputStream.html">InputStream</a>
+      </span>
+        is
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="next_request_id"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        int
+      </span>
+        next_request_id
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="os"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/OutputStream.html">OutputStream</a>
+      </span>
+        os
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="protocol_version"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        int
+      </span>
+        protocol_version
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="server_extensions"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/util/HashMap.html">HashMap</a>
+      </span>
+        server_extensions
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="sess"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+        final 
+        <a href="../../../../java/com/trilead/ssh2/Session.html">Session</a>
+      </span>
+        sess
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="SFTPv3Client(com.trilead.ssh2.Connection, java.io.PrintStream)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">SFTPv3Client</span>
+      <span class="normal">(<a href="../../../../java/com/trilead/ssh2/Connection.html">Connection</a> conn, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/PrintStream.html">PrintStream</a> debug)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This constructor is deprecated.</strong><br/> this constructor (debug version) will disappear in the future,
+             use <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html#SFTPv3Client(com.trilead.ssh2.Connection)">SFTPv3Client(Connection)</a></code> instead.
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Create a SFTP v3 client.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>conn</td>
+          <td>The underlying SSH-2 connection to be used.</td>
+        </tr>
+        <tr>
+          <th>debug</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th></td>
+            <td>IOException</td>
+        </tr>  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="SFTPv3Client(com.trilead.ssh2.Connection)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">SFTPv3Client</span>
+      <span class="normal">(<a href="../../../../java/com/trilead/ssh2/Connection.html">Connection</a> conn)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Create a SFTP v3 client.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>conn</td>
+          <td>The underlying SSH-2 connection to be used.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="canonicalPath(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">canonicalPath</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> path)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Have the server canonicalize any given path name to an absolute path.
+ This is useful for converting path names containing ".." components or
+ relative pathnames without a leading slash into absolute paths.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>path</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An absolute path.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="close()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">close</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Close this SFTP session. NEVER forget to call this method to free up
+ resources - even if you got an exception from one of the other methods.
+ Sometimes these other methods may throw an exception, saying that the
+ underlying channel is closed (this can happen, e.g., if the other server
+ sent a close message.) However, as long as you have not called the
+ <code>close()</code> method, you are likely wasting resources.
+ 
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="closeFile(com.trilead.ssh2.SFTPv3FileHandle)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">closeFile</span>
+      <span class="normal">(<a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a> handle)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Close a file.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>handle</td>
+          <td>A SFTPv3FileHandle handle</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createFile(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a>
+      </span>
+      <span class="sympad">createFile</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Create a file and open it for reading and writing.
+ Same as <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html#createFile(java.lang.String, com.trilead.ssh2.SFTPv3FileAttributes)">createFile(fileName, null)</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fileName</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a SFTPv3FileHandle handle</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createFile(java.lang.String, com.trilead.ssh2.SFTPv3FileAttributes)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a>
+      </span>
+      <span class="sympad">createFile</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName, <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a> attr)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Create a file and open it for reading and writing.
+ You can specify the default attributes of the file (the server may or may
+ not respect your wishes).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fileName</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+        <tr>
+          <th>attr</td>
+          <td>May be <code>null</code> to use server defaults. Probably only
+             the <code>uid</code>, <code>gid</code> and <code>permissions</code>
+             (remember the server may apply a umask) entries of the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a></code>
+             structure make sense. You need only to set those fields where you want
+             to override the server's defaults.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a SFTPv3FileHandle handle</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createFileTruncate(java.lang.String, com.trilead.ssh2.SFTPv3FileAttributes)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a>
+      </span>
+      <span class="sympad">createFileTruncate</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName, <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a> attr)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>reate a file (truncate it if it already exists) and open it for reading and writing.
+ You can specify the default attributes of the file (the server may or may
+ not respect your wishes).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fileName</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+        <tr>
+          <th>attr</td>
+          <td>May be <code>null</code> to use server defaults. Probably only
+             the <code>uid</code>, <code>gid</code> and <code>permissions</code>
+             (remember the server may apply a umask) entries of the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a></code>
+             structure make sense. You need only to set those fields where you want
+             to override the server's defaults.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a SFTPv3FileHandle handle</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createFileTruncate(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a>
+      </span>
+      <span class="sympad">createFileTruncate</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Create a file (truncate it if it already exists) and open it for reading and writing.
+ Same as <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html#createFileTruncate(java.lang.String, com.trilead.ssh2.SFTPv3FileAttributes)">createFileTruncate(fileName, null)</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fileName</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a SFTPv3FileHandle handle</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createSymlink(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">createSymlink</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> src, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> target)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Create a symbolic link on the server. Creates a link "src" that points
+ to "target".</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>src</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+        <tr>
+          <th>target</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="fsetstat(com.trilead.ssh2.SFTPv3FileHandle, com.trilead.ssh2.SFTPv3FileAttributes)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">fsetstat</span>
+      <span class="normal">(<a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a> handle, <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a> attr)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Modify the attributes of a file. Used for operations such as changing
+  the ownership, permissions or access times, as well as for truncating a file.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>handle</td>
+          <td>A SFTPv3FileHandle handle</td>
+        </tr>
+        <tr>
+          <th>attr</td>
+          <td>A SFTPv3FileAttributes object. Specifies the modifications to be
+             made to the attributes of the file. Empty fields will be ignored.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="fstat(com.trilead.ssh2.SFTPv3FileHandle)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a>
+      </span>
+      <span class="sympad">fstat</span>
+      <span class="normal">(<a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a> handle)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve the file attributes of an open file.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>handle</td>
+          <td>A SFTPv3FileHandle handle.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a SFTPv3FileAttributes object.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCharset()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getCharset</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The currently used charset for filename encoding/decoding.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The name of the charset (<code>null</code> if the platform's default charset is being used)
+</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#setCharset(java.lang.String)">setCharset(String)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getProtocolVersion()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getProtocolVersion</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the negotiated SFTP protocol version between the client and the server.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>SFTP protocol version, i.e., "3".
+ 
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="ls(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/util/Vector.html">Vector</a>
+      </span>
+      <span class="sympad">ls</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> dirName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>List the contents of a directory.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>dirName</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A Vector containing <code><a href="../../../../java/com/trilead/ssh2/SFTPv3DirectoryEntry.html">SFTPv3DirectoryEntry</a></code> objects.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="lstat(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a>
+      </span>
+      <span class="sympad">lstat</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> path)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve the file attributes of a file. This method
+ does NOT follow symbolic links on the server.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>path</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a SFTPv3FileAttributes object.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#stat(java.lang.String)">stat(String)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="mkdir(java.lang.String, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">mkdir</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> dirName, int posixPermissions)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Create a new directory.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>dirName</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+        <tr>
+          <th>posixPermissions</td>
+          <td>The permissions for this directory, e.g., "0700" (remember that
+                         this is octal noation). The server will likely apply a umask.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="mv(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">mv</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> oldPath, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> newPath)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Move a file or directory.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>oldPath</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+        <tr>
+          <th>newPath</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="openFileRO(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a>
+      </span>
+      <span class="sympad">openFileRO</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Open a file for reading.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fileName</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a SFTPv3FileHandle handle</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="openFileRW(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a>
+      </span>
+      <span class="sympad">openFileRW</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Open a file for reading and writing.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fileName</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a SFTPv3FileHandle handle</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="read(com.trilead.ssh2.SFTPv3FileHandle, long, byte[], int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">read</span>
+      <span class="normal">(<a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a> handle, long fileOffset, byte[] dst, int dstoff, int len)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Read bytes from a file. No more than 32768 bytes may be read at once.
+ Be aware that the semantics of read() are different than for Java streams.
+ <p>
+ <ul>
+ <li>The server will read as many bytes as it can from the file (up to <code>len</code>),
+ and return them.</li>
+ <li>If EOF is encountered before reading any data, <code>-1</code> is returned.
+ <li>If an error occurs, an exception is thrown</li>.
+ <li>For normal disk files, it is guaranteed that the server will return the specified
+ number of bytes, or up to end of file. For, e.g., device files this may return
+ fewer bytes than requested.</li>
+ </ul></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>handle</td>
+          <td>A SFTPv3FileHandle handle</td>
+        </tr>
+        <tr>
+          <th>fileOffset</td>
+          <td>Offset (in bytes) in the file</td>
+        </tr>
+        <tr>
+          <th>dst</td>
+          <td>The destination byte array</td>
+        </tr>
+        <tr>
+          <th>dstoff</td>
+          <td>Offset in the destination byte array</td>
+        </tr>
+        <tr>
+          <th>len</td>
+          <td>How many bytes to read, 0 &lt; len &lt;= 32768 bytes</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the number of bytes that could be read, may be less than requested if
+         the end of the file is reached, -1 is returned in case of <code>EOF</code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="readLink(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">readLink</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> path)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Read the target of a symbolic link.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>path</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The target of the link.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="rm(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">rm</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> fileName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Remove a file.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fileName</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="rmdir(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">rmdir</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> dirName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Remove an empty directory. </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>dirName</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setCharset(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setCharset</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> charset)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set the charset used to convert between Java Unicode Strings and byte encodings
+ used by the server for paths and file names. Unfortunately, the SFTP v3 draft
+ says NOTHING about such conversions (well, with the exception of error messages
+ which have to be in UTF-8). Newer drafts specify to use UTF-8 for file names
+ (if I remember correctly). However, a quick test using OpenSSH serving a EXT-3
+ filesystem has shown that UTF-8 seems to be a bad choice for SFTP v3 (tested with
+ filenames containing german umlauts). "windows-1252" seems to work better for Europe.
+ Luckily, "windows-1252" is the platform default in my case =).
+ <p>
+ If you don't set anything, then the platform default will be used (this is the default
+ behavior).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>charset</td>
+          <td>The name of the charset to be used or <code>null</code> to use the platform's
+        default encoding.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#getCharset()">getCharset()</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setstat(java.lang.String, com.trilead.ssh2.SFTPv3FileAttributes)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setstat</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> path, <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a> attr)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Modify the attributes of a file. Used for operations such as changing
+  the ownership, permissions or access times, as well as for truncating a file.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>path</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+        <tr>
+          <th>attr</td>
+          <td>A SFTPv3FileAttributes object. Specifies the modifications to be
+             made to the attributes of the file. Empty fields will be ignored.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="stat(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a>
+      </span>
+      <span class="sympad">stat</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> path)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve the file attributes of a file. This method
+ follows symbolic links on the server.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>path</td>
+          <td>See the <code><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">comment</a></code> for the class for more details.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a SFTPv3FileAttributes object.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../com/trilead/ssh2/SFTPv3Client.html#lstat(java.lang.String)">lstat(String)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="write(com.trilead.ssh2.SFTPv3FileHandle, long, byte[], int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">write</span>
+      <span class="normal">(<a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a> handle, long fileOffset, byte[] src, int srcoff, int len)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Write bytes to a file. If <code>len</code> &gt; 32768, then the write operation will
+ be split into multiple writes.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>handle</td>
+          <td>A SFTPv3FileHandle handle.</td>
+        </tr>
+        <tr>
+          <th>fileOffset</td>
+          <td>Offset (in bytes) in the file.</td>
+        </tr>
+        <tr>
+          <th>src</td>
+          <td>The source byte array.</td>
+        </tr>
+        <tr>
+          <th>srcoff</td>
+          <td>Offset in the source byte array.</td>
+        </tr>
+        <tr>
+          <th>len</td>
+          <td>How many bytes to write.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

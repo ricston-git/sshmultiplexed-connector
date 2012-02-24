@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Cloud Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>
+
+  Session
+
+
+| Mule Cloud Connector
+
+</title>
+<link href="../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../", "../../../../assets/");
+</script>
+<script src="../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Cloud Connector</span>
+    
+    <ul id="header-tabs" class="">
+    
+    	<li id="guide"><a href="../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    
+    	<li id="java"><a href="../../../../java/packages.html">
+	    	<span class="en">Java API Reference</span>
+    	</a></li>
+    
+    	<li id="mule"><a href="../../../../mule/modules.html">
+	    	<span class="en">Mule API Reference</span>
+    	</a></li>
+    
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../java/classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="selected api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/package-summary.html">com.trilead.ssh2</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/auth/package-summary.html">com.trilead.ssh2.auth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/channel/package-summary.html">com.trilead.ssh2.channel</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/crypto/package-summary.html">com.trilead.ssh2.crypto</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/crypto/cipher/package-summary.html">com.trilead.ssh2.crypto.cipher</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/crypto/dh/package-summary.html">com.trilead.ssh2.crypto.dh</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/crypto/digest/package-summary.html">com.trilead.ssh2.crypto.digest</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/log/package-summary.html">com.trilead.ssh2.log</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/packets/package-summary.html">com.trilead.ssh2.packets</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/sftp/package-summary.html">com.trilead.ssh2.sftp</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/signature/package-summary.html">com.trilead.ssh2.signature</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/transport/package-summary.html">com.trilead.ssh2.transport</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/com/trilead/ssh2/util/package-summary.html">com.trilead.ssh2.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/ssh/multiplexer/package-summary.html">org.mule.modules.ssh.multiplexer</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/ssh/multiplexer/config/package-summary.html">org.mule.modules.ssh.multiplexer.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/ssh/multiplexer/config/spring/package-summary.html">org.mule.modules.ssh.multiplexer.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/modules/ssh/multiplexer/exception/package-summary.html">org.mule.modules.ssh.multiplexer.exception</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/ChannelCondition.html">ChannelCondition</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/ConnectionMonitor.html">ConnectionMonitor</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/DebugLogger.html">DebugLogger</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/InteractiveCallback.html">InteractiveCallback</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/ProxyData.html">ProxyData</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SelfConnectionProxyData.html">SelfConnectionProxyData</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/ServerHostKeyVerifier.html">ServerHostKeyVerifier</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/Connection.html">Connection</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/ConnectionInfo.html">ConnectionInfo</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/DHGexParameters.html">DHGexParameters</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/HTTPProxyData.html">HTTPProxyData</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/KnownHosts.html">KnownHosts</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/LocalPortForwarder.html">LocalPortForwarder</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/LocalStreamForwarder.html">LocalStreamForwarder</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SCPClient.html">SCPClient</a></li>
+          <li class="selected api apilevel-"><a href="../../../../java/com/trilead/ssh2/Session.html">Session</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SFTPv3Client.html">SFTPv3Client</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SFTPv3DirectoryEntry.html">SFTPv3DirectoryEntry</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SFTPv3FileAttributes.html">SFTPv3FileAttributes</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SFTPv3FileHandle.html">SFTPv3FileHandle</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/StreamConnection.html">StreamConnection</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/StreamGobbler.html">StreamGobbler</a></li>
+      </ul>
+    </li>
+              
+              
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/HTTPProxyException.html">HTTPProxyException</a></li>
+          <li class="api apilevel-"><a href="../../../../java/com/trilead/ssh2/SFTPException.html">SFTPException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+
+
+  <a href="#lfields">Fields</a>
+  
+
+
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1>Session</h1>
+
+
+
+  
+    extends <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">com.trilead.ssh2.Session</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>A <code>Session</code> is a remote execution of a program. "Program" means
+ in this context either a shell, an application or a system command. The
+ program may or may not have a tty. Only one single program can be started on
+ a session. However, multiple sessions can be active simultaneously.</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          <a href="../../../../java/com/trilead/ssh2/channel/ChannelManager.html">ChannelManager</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/Session.html#cm">cm</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          <a href="../../../../java/com/trilead/ssh2/channel/Channel.html">Channel</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/Session.html#cn">cn</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          boolean</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/Session.html#flag_closed">flag_closed</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          boolean</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/Session.html#flag_execution_started">flag_execution_started</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          boolean</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/Session.html#flag_pty_requested">flag_pty_requested</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          boolean</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/Session.html#flag_x11_requested">flag_x11_requested</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          final
+          <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/security/SecureRandom.html">SecureRandom</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/Session.html#rnd">rnd</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          
+          
+          
+          <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../com/trilead/ssh2/Session.html#x11FakeCookie">x11FakeCookie</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#close()">close</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Close this session.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#execCommand(java.lang.String)">execCommand</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> cmd)</nobr>
+        
+        <div class="jd-descrdiv">Execute a command on the remote machine.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#getExitSignal()">getExitSignal</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the name of the signal by which the process on the remote side was
+ stopped - if available and applicable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Integer.html">Integer</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#getExitStatus()">getExitStatus</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the exit code/status from the remote command - if available.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/InputStream.html">InputStream</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#getStderr()">getStderr</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/OutputStream.html">OutputStream</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#getStdin()">getStdin</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/InputStream.html">InputStream</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#getStdout()">getStdout</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#ping()">ping</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">This method can be used to perform end-to-end session (i.e., SSH channel)
+ testing.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#requestDumbPTY()">requestDumbPTY</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Basically just a wrapper for lazy people - identical to calling
+ <code>requestPTY("dumb", 0, 0, 0, 0, null)</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#requestPTY(java.lang.String)">requestPTY</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> term)</nobr>
+        
+        <div class="jd-descrdiv">Basically just another wrapper for lazy people - identical to calling
+ <code>requestPTY(term, 0, 0, 0, 0, null)</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#requestPTY(java.lang.String, int, int, int, int, byte[])">requestPTY</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> term, int term_width_characters, int term_height_characters, int term_width_pixels, int term_height_pixels, byte[] terminal_modes)</nobr>
+        
+        <div class="jd-descrdiv">Allocate a pseudo-terminal for this session.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#requestWindowSizeChange(int, int, int, int)">requestWindowSizeChange</a></span>(int term_width_characters, int term_height_characters, int term_width_pixels, int term_height_pixels)</nobr>
+        
+        <div class="jd-descrdiv">Request window change.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#requestX11Forwarding(java.lang.String, int, byte[], boolean)">requestX11Forwarding</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> hostname, int port, byte[] cookie, boolean singleConnection)</nobr>
+        
+        <div class="jd-descrdiv">Request X11 forwarding for the current session.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#startShell()">startShell</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Start a shell on the remote machine.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#startSubSystem(java.lang.String)">startSubSystem</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Start a subsystem on the remote machine.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#waitForCondition(int, long)">waitForCondition</a></span>(int condition_set, long timeout)</nobr>
+        
+        <div class="jd-descrdiv">This method blocks until certain conditions hold true on the underlying SSH-2 channel.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/trilead/ssh2/Session.html#waitUntilDataAvailable(long)">waitUntilDataAvailable</a></span>(long timeout)</nobr>
+        
+        <div class="jd-descrdiv">
+      <em>
+  This method is deprecated.
+      This method has been replaced with a much more powerful wait-for-condition
+             interface and therefore acts only as a wrapper.
+ 
+</em></div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a> arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="cm"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/channel/ChannelManager.html">ChannelManager</a>
+      </span>
+        cm
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="cn"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        <a href="../../../../java/com/trilead/ssh2/channel/Channel.html">Channel</a>
+      </span>
+        cn
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="flag_closed"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        boolean
+      </span>
+        flag_closed
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="flag_execution_started"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        boolean
+      </span>
+        flag_execution_started
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="flag_pty_requested"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        boolean
+      </span>
+        flag_pty_requested
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="flag_x11_requested"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        boolean
+      </span>
+        flag_x11_requested
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="rnd"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+        final 
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/security/SecureRandom.html">SecureRandom</a>
+      </span>
+        rnd
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="x11FakeCookie"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+      </span>
+        x11FakeCookie
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="close()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">close</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Close this session. NEVER forget to call this method to free up resources -
+ even if you got an exception from one of the other methods (or when
+ getting an Exception on the Input- or OutputStreams). Sometimes these other
+ methods may throw an exception, saying that the underlying channel is
+ closed (this can happen, e.g., if the other server sent a close message.)
+ However, as long as you have not called the <code>close()</code>
+ method, you may be wasting (local) resources.
+ 
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="execCommand(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">execCommand</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> cmd)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Execute a command on the remote machine.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>cmd</td>
+          <td>The command to execute on the remote host.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getExitSignal()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getExitSignal</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the name of the signal by which the process on the remote side was
+ stopped - if available and applicable. Be careful - not all server
+ implementations return this value.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An <code>String</code> holding the name of the signal, or
+         <code>null</code> if the process exited normally or is still
+         running (or if the server forgot to send this information).
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getExitStatus()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Integer.html">Integer</a>
+      </span>
+      <span class="sympad">getExitStatus</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the exit code/status from the remote command - if available. Be
+ careful - not all server implementations return this value. It is
+ generally a good idea to call this method only when all data from the
+ remote side has been consumed (see also the <code<WaitForCondition</code> method).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>An <code>Integer</code> holding the exit code, or
+         <code>null</code> if no exit code is (yet) available.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getStderr()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/InputStream.html">InputStream</a>
+      </span>
+      <span class="sympad">getStderr</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getStdin()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/OutputStream.html">OutputStream</a>
+      </span>
+      <span class="sympad">getStdin</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getStdout()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/InputStream.html">InputStream</a>
+      </span>
+      <span class="sympad">getStdout</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="ping()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">ping</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This method can be used to perform end-to-end session (i.e., SSH channel)
+ testing. It sends a 'ping' message to the server and waits for the 'pong'
+ from the server.
+ <p>
+ Implementation details: this method sends a SSH_MSG_CHANNEL_REQUEST request
+ ('trilead-ping') to the server and waits for the SSH_MSG_CHANNEL_FAILURE reply
+ packet.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td>in case of any problem or when the session is closed
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestDumbPTY()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestDumbPTY</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Basically just a wrapper for lazy people - identical to calling
+ <code>requestPTY("dumb", 0, 0, 0, 0, null)</code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestPTY(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestPTY</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> term)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Basically just another wrapper for lazy people - identical to calling
+ <code>requestPTY(term, 0, 0, 0, 0, null)</code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>term</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestPTY(java.lang.String, int, int, int, int, byte[])"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestPTY</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> term, int term_width_characters, int term_height_characters, int term_width_pixels, int term_height_pixels, byte[] terminal_modes)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Allocate a pseudo-terminal for this session.
+ <p>
+ This method may only be called before a program or shell is started in
+ this session.
+ <p>
+ Different aspects can be specified:
+ <p>
+ <ul>
+ <li>The TERM environment variable value (e.g., vt100)</li>
+ <li>The terminal's dimensions.</li>
+ <li>The encoded terminal modes.</li>
+ </ul>
+ Zero dimension parameters are ignored. The character/row dimensions
+ override the pixel dimensions (when nonzero). Pixel dimensions refer to
+ the drawable area of the window. The dimension parameters are only
+ informational. The encoding of terminal modes (parameter
+ <code>terminal_modes</code>) is described in RFC4254.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>term</td>
+          <td>The TERM environment variable value (e.g., vt100)</td>
+        </tr>
+        <tr>
+          <th>term_width_characters</td>
+          <td>Terminal width, characters (e.g., 80)</td>
+        </tr>
+        <tr>
+          <th>term_height_characters</td>
+          <td>Terminal height, rows (e.g., 24)</td>
+        </tr>
+        <tr>
+          <th>term_width_pixels</td>
+          <td>Terminal width, pixels (e.g., 640)</td>
+        </tr>
+        <tr>
+          <th>term_height_pixels</td>
+          <td>Terminal height, pixels (e.g., 480)</td>
+        </tr>
+        <tr>
+          <th>terminal_modes</td>
+          <td>Encoded terminal modes (may be <code>null</code>)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestWindowSizeChange(int, int, int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestWindowSizeChange</span>
+      <span class="normal">(int term_width_characters, int term_height_characters, int term_width_pixels, int term_height_pixels)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Request window change.
+ <p>
+ This method may only be called after a program or shell is started
+ in this session.
+ <p>
+ Zero dimension parameters are ignored. The character/row dimensions
+ override the pixel dimensions (when nonzero). Pixel dimensions refer to
+ the drawable area of the window. The dimension parameters are only
+ informational. </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>term_width_characters</td>
+          <td>Terminal width, characters (e.g., 80)</td>
+        </tr>
+        <tr>
+          <th>term_height_characters</td>
+          <td>Terminal height, rows (e.g., 24)</td>
+        </tr>
+        <tr>
+          <th>term_width_pixels</td>
+          <td>Terminal width, pixels (e.g., 640)</td>
+        </tr>
+        <tr>
+          <th>term_height_pixels</td>
+          <td>Terminal height, pixels (e.g., 480)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="requestX11Forwarding(java.lang.String, int, byte[], boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestX11Forwarding</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> hostname, int port, byte[] cookie, boolean singleConnection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Request X11 forwarding for the current session.
+ <p>
+ You have to supply the name and port of your X-server.
+ <p>
+ This method may only be called before a program or shell is started in
+ this session.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>hostname</td>
+          <td>The hostname of the real (target) X11 server (e.g., 127.0.0.1)</td>
+        </tr>
+        <tr>
+          <th>port</td>
+          <td>The port of the real (target) X11 server (e.g., 6010)</td>
+        </tr>
+        <tr>
+          <th>cookie</td>
+          <td>If non-null, then present this cookie to the real X11 server</td>
+        </tr>
+        <tr>
+          <th>singleConnection</td>
+          <td>If true, then the server is instructed to only forward one single
+        connection, no more connections shall be forwarded after first, or after the session
+        channel has been closed</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="startShell()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">startShell</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Start a shell on the remote machine.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="startSubSystem(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">startSubSystem</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Start a subsystem on the remote machine.
+ Unless you know what you are doing, you will never need this.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</td>
+          <td>The name of the subsystem.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="waitForCondition(int, long)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">waitForCondition</span>
+      <span class="normal">(int condition_set, long timeout)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>This method blocks until certain conditions hold true on the underlying SSH-2 channel.
+ <p>
+ This method returns as soon as one of the following happens:
+ <ul>
+ <li>at least of the specified conditions (see <code><a href="../../../../java/com/trilead/ssh2/ChannelCondition.html">ChannelCondition</a></code>) holds true</li>
+ <li>timeout > 0 and a timeout occured (TIMEOUT will be set in result conditions)</a> 
+ <li>the underlying channel was closed (CLOSED will be set in result conditions)</a>
+ </ul>
+ <p>
+ In any case, the result value contains ALL current conditions, which may be more
+ than the specified condition set (i.e., never use the "==" operator to test for conditions
+ in the bitmask, see also comments in <code><a href="../../../../java/com/trilead/ssh2/ChannelCondition.html">ChannelCondition</a></code>). 
+ <p>
+ Note: do NOT call this method if you want to wait for STDOUT_DATA or STDERR_DATA and
+ there are concurrent threads (e.g., StreamGobblers) that operate on either of the two
+ InputStreams of this <code>Session</code> (otherwise this method may
+ block, even though more data is available in the StreamGobblers).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>condition_set</td>
+          <td>A bitmask based on <code><a href="../../../../java/com/trilead/ssh2/ChannelCondition.html">ChannelCondition</a></code> values</td>
+        </tr>
+        <tr>
+          <th>timeout</td>
+          <td>Non-negative timeout in ms, <code>0</code> means no timeout</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>all bitmask specifying all current conditions that are true
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="waitUntilDataAvailable(long)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">waitUntilDataAvailable</span>
+      <span class="normal">(long timeout)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      <p>
+  <p class="caution">
+      <strong>
+  This method is deprecated.</strong><br/> This method has been replaced with a much more powerful wait-for-condition
+             interface and therefore acts only as a wrapper.
+ 
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>This method blocks until there is more data available on either the
+ stdout or stderr InputStream of this <code>Session</code>. Very useful
+ if you do not want to use two parallel threads for reading from the two
+ InputStreams. One can also specify a timeout. NOTE: do NOT call this
+ method if you use concurrent threads that operate on either of the two
+ InputStreams of this <code>Session</code> (otherwise this method may
+ block, even though more data is available).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>timeout</td>
+          <td>The (non-negative) timeout in <code>ms</code>. <code>0</code> means no
+            timeout, the call may block forever.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><ul>
+            <li><code>0</code> if no more data will arrive.</li>
+            <li><code>1</code> if more data is available.</li>
+            <li><code>-1</code> if a timeout occurred.</li>
+            </ul></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th></td>
+            <td>IOException</td>
+        </tr>  
+        <tr>
+            <th><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

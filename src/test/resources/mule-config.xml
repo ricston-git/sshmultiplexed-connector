@@ -32,7 +32,7 @@
         http://www.mulesoft.org/schema/mule/sshmultiplexedconnector http://www.mulesoft.org/schema/mule/sshmultiplexedconnector/1.0/mule-sshmultiplexedconnector.xsd">
 
 	<context:property-placeholder location="ssh.test.properties" /> 
-    <sshmultiplexedconnector:config host="172.16.20.36" port="22" timeout="60000" callbackFlowName="callback" shellMode="true" />
+    <sshmultiplexedconnector:config host="${ssh.host}" port="${ssh.port}" timeout="${ssh.timeout}" callbackFlowName="callback" shellMode="true" />
 
     <flow name="testFlow">
         <sshmultiplexedconnector:send username="${ssh.user}" password="${ssh.pass}" content="cd test" breakLine="true" />

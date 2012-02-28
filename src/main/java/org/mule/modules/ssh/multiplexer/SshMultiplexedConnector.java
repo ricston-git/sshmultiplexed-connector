@@ -211,7 +211,7 @@ public class SshMultiplexedConnector implements MuleContextAware {
     		Map<String, Object> inbound = new HashMap<String, Object>();
     		inbound.put(SSH_CALLBACK_USER, username);
     		
-    		MuleMessage message = new DefaultMuleMessage(response, this.muleContext);
+    		MuleMessage message = new DefaultMuleMessage(response, inbound, null, null, this.muleContext);
     		message.setOutboundProperty(SSH_CALLBACK_USER, username);
     		
     		MuleEvent event = new DefaultMuleEvent(message, MessageExchangePattern.REQUEST_RESPONSE, new DefaultMuleSession(this.callbackFlow, this.muleContext));

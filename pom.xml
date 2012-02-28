@@ -248,4 +248,14 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+	
+	
+    <scm>
+        <connection>scm:git:git://github.com:mulesoft/salesforce-connector.git
+        </connection>
+        <developerConnection>
+            scm:git@github.com:mulesoft/sshmultiplexed-connector.git
+        </developerConnection>
+        <url>https://github.com/mulesoft/sshmultiplexed-connector</url>
+    </scm>
 </project>

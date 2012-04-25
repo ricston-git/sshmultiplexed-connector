@@ -13,6 +13,14 @@
 		<mule.devkit.version>3.1</mule.devkit.version>
 		<junit.version>4.8.2</junit.version>
 		<mockito.version>1.8.2</mockito.version>
+		
+		<project.distributionManagement.repository.id>muleforge-releases</project.distributionManagement.repository.id>
+		<project.distributionManagement.repository.name>MuleForge Releases Repository</project.distributionManagement.repository.name>
+		<project.distributionManagement.repository.url>http://repository.mulesoft.org/releases/</project.distributionManagement.repository.url>
+		
+		<project.distributionManagement.snapshotRepository.id>muleforge-snapshots</project.distributionManagement.snapshotRepository.id>
+		<project.distributionManagement.snapshotRepository.name>MuleForge Snapshots Repository</project.distributionManagement.snapshotRepository.name>
+		<project.distributionManagement.snapshotRepository.url>http://repository.mulesoft.org/snapshots</project.distributionManagement.snapshotRepository.url>
 	</properties>
 
 	<distributionManagement>
@@ -177,18 +185,6 @@
 	</build>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.mule.dsl</groupId>
-			<artifactId>dsl-api</artifactId>
-			<version>0.7</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.mule</groupId>
-					<artifactId>core</artifactId>
-				</exclusion>
-			</exclusions>
-			<scope>provided</scope>
-		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

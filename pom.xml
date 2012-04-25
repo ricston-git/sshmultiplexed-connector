@@ -264,8 +264,7 @@
 
 
 	<scm>
-		<connection>scm:git:git://github.com:mulesoft/salesforce-connector.git
-        </connection>
+		<connection>scm:git:git://github.com/mulesoft/sshmultiplexed-connector.git</connection>
 		<developerConnection>
             scm:git@github.com:mulesoft/sshmultiplexed-connector.git
         </developerConnection>

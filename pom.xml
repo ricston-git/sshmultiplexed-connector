@@ -266,7 +266,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/mulesoft/sshmultiplexed-connector.git</connection>
 		<developerConnection>
-            scm:git@github.com:mulesoft/sshmultiplexed-connector.git
+            scm:git:git@github.com:mulesoft/sshmultiplexed-connector.git
         </developerConnection>
 		<url>https://github.com/mulesoft/sshmultiplexed-connector</url>
 	</scm>

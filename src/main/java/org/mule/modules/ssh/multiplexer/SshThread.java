@@ -30,8 +30,9 @@ public abstract class SshThread extends Thread {
 		String msg = "Error in consumer/producer thread";
 		
 		if (logger.isDebugEnabled()) {
-			logger.error(msg, t);
+			logger.debug(msg, t);
 		}
+		logger.error(msg);
 		
 		throw new RuntimeException(msg, t);
 	}

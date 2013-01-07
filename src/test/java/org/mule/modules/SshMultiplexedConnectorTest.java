@@ -20,12 +20,14 @@
  */
 package org.mule.modules;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mule.api.MuleEvent;
 import org.mule.construct.Flow;
 import org.mule.tck.AbstractMuleTestCase;
 import org.mule.tck.FunctionalTestCase;
 
+@Ignore(value="Standard generated tests only")
 public class SshMultiplexedConnectorTest extends FunctionalTestCase
 {
     @Override

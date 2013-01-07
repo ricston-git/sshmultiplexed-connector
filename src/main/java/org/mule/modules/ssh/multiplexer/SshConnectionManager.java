@@ -63,6 +63,18 @@ public class SshConnectionManager {
 	}
 	
 	/**
+	 * Checks if an active connection associated with the username exists
+	 * @param username - the username whose connection we want to check
+	 */
+	public boolean isConnected(String username) {
+		SshClient client = this.clients.get(username);
+		if (client != null && client.isConnected()) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * Releases all active connections form all users
 	 */
 	public void releaseAll() {

@@ -120,7 +120,12 @@ public class SshMultiplexedConnector implements MuleContextAware {
 	 */
 	@Configurable
 	@Optional
-	private Integer receiverBufferSize = 8192; 
+	private Integer receiverBufferSize = 8192;
+
+	/**
+	 * Track a timestamp when a last successful callback was performed.
+	 */
+	private long lastCallBack = System.currentTimeMillis(); 
 	
     /**
      * Instanciates the connectionManager.
@@ -174,6 +179,7 @@ public class SshMultiplexedConnector implements MuleContextAware {
      * @param breakLine - if true, then 
      * @return Accumulates text response from the server until the receiving buffer is empty and then
      * returns all of the content at once.
+     * @throws Exception All but CommunicationException are thrown here.
      */
     @Processor
     public void send(String username,
@@ -218,10 +224,12 @@ public class SshMultiplexedConnector implements MuleContextAware {
     		
     		try {
     			this.callbackFlowLookup().process(event).getMessage();
+    			this.lastCallBack = System.currentTimeMillis();
     		} catch (MuleException e) {
     			if (logger.isDebugEnabled()) {
-    				logger.error("Error invoking callback flow", e);
+    				logger.debug("Error invoking callback flow", e);
     			}
+				logger.error("Error invoking callback flow");
     			throw new RuntimeException(e);
     		}
     	}
@@ -238,6 +246,39 @@ public class SshMultiplexedConnector implements MuleContextAware {
     @Processor
     public void release(String username) {
     	this.connectionManager.release(username);
+    }
+    
+    /**
+     * Verifies if the ssh connection associated with the username is connected, or optionally if no data was received for an extended time.
+     * It does so by invoking {@link org.mule.modules.ssh.multiplexer.SshConnectionManager.isConnected(String)}
+     * {@sample.xml ../../../doc/SshMultiplexedConnector-connector.xml.sample sshmultiplexedconnector:is-connected}
+     * 
+     * @param username - the username whose connection we want to check
+     * @param maxtime  - If greater than 0 an additional time check is performed verifying when data was last received on this connection.
+     * 					 If data received was longer than maxtime seconds ago, 'STALE' is returned.
+     * 					 STALE means UP - but no data was received for a while.
+     * @return UP, DOWN, STALE (if maxtime was provided)
+     * @see org.mule.modules.ssh.multiplexer.SshConnectionManager.isConnected(String)
+     */
+    @Processor
+    public String isConnected(	String username, 
+    							@Optional @Default("0") 
+    							long maxtime) {
+    	String result; 
+    	if (this.connectionManager.isConnected(username)) {
+        	if (maxtime > 0 && (System.currentTimeMillis() - this.lastCallBack) > (maxtime*1000) ) {
+        		result = "STALE";
+        	}
+        	else {
+        		result = "UP";
+        	}
+    	}
+    	else {
+    		result = "DOWN";
+    	}
+
+    	logger.info("Connection '" + username+"@"+this.host + "' is '" + result + "'");
+    	return result;
     }
     
     /**
@@ -263,16 +304,51 @@ public class SshMultiplexedConnector implements MuleContextAware {
 		this.host = host;
 	}
 
+	/**
+	 * @return the host
+	 */
+	public String getHost() {
+		return host;
+	}
+
+	/**
+	 * @return the port
+	 */
+	public int getPort() {
+		return port;
+	}
+
 	public void setPort(int port) {
 		this.port = port;
+	}
+
+	/**
+	 * @return the timeout
+	 */
+	public int getTimeout() {
+		return timeout;
 	}
 
 	public void setTimeout(int timeout) {
 		this.timeout = timeout;
 	}
 
+	/**
+	 * @return the shellMode
+	 */
+	public boolean isShellMode() {
+		return shellMode;
+	}
+
 	public void setShellMode(boolean shellMode) {
 		this.shellMode = shellMode;
+	}
+
+	/**
+	 * @return the callbackFlowName
+	 */
+	public String getCallbackFlowName() {
+		return callbackFlowName;
 	}
 
 	public void setCallbackFlowName(String callbackFlowName) {

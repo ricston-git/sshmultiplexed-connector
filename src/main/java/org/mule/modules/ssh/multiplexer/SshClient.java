@@ -3,8 +3,6 @@ package org.mule.modules.ssh.multiplexer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.log4j.Logger;
 import org.mule.modules.ssh.multiplexer.exception.CommunicationException;
@@ -30,14 +28,17 @@ public class SshClient {
 	private Connection connection = null;
 	private Session session = null;
 	
+	/** Thread processing stdout and stderr. It contains blocking calls, and has thus been put in a separate Thread */
 	private SshThread responseConsumerThread;
-	private SshThread responseProducerThread;
 	
-	private BlockingQueue<String> receiverBuffer = new LinkedBlockingQueue<String>();
 	private int receiverBufferSize;
 	
+	/** Ssh stdin */
 	private OutputStream sender = null;
+	/** Ssh stdout */
 	private InputStream receiver = null;
+	/** Ssh stderr */
+	private InputStream error = null;
 
 	public SshClient(SshConnectionDetails details) {
 		this.details = details;
@@ -60,19 +61,18 @@ public class SshClient {
 			Session session = this.connection.openSession();
 			
 			if (this.details.isShellMode()) {
-				session.requestPTY("dumb", 500, 500, 0, 0, null);
+				session.requestPTY("mulessh", 500, 500, 0, 0, null);
 				session.startShell();
 			}
 			
 			this.session = session;
+			
 			this.sender = session.getStdin();
 			this.receiver = session.getStdout();
-			
+			this.error = session.getStderr();
+
 			this.responseConsumerThread = new ResponseConsumerThread(this);
-			this.responseProducerThread = new ResponseProducerThread(this);
-			
 			this.responseConsumerThread.start();
-			this.responseProducerThread.start();
 		}
 	}
 
@@ -113,9 +113,10 @@ public class SshClient {
 		} catch (IOException e) {
 			String msg = "Error writing on the ssh channel";
 			if (logger.isDebugEnabled()) {
-				logger.error(msg, e);
-				throw new RuntimeException(msg, e);
+				logger.debug(msg, e);
 			}
+			logger.error(msg);
+			throw new RuntimeException(msg, e);
 		}
 	}
 	
@@ -127,20 +128,36 @@ public class SshClient {
 		return session;
 	}
 
+	/**
+	 * ssh stdin InputStream
+	 */
 	public OutputStream getSender() {
 		return sender;
 	}
 
+	/**
+	 * ssh stdout InputStream
+	 */
 	public InputStream getReceiver() {
 		return receiver;
 	}
 
-	public BlockingQueue<String> getReceiverBuffer() {
-		return receiverBuffer;
+	/**
+	 * ssh stderr InputStream
+	 */
+	public InputStream getError() {
+		return error;
+	}
+
+	/**
+	 * Connection details.
+	 */
+	public SshConnectionDetails getDetails() {
+		return details;
 	}
 
 	public int getReceiverBufferSize() {
 		return receiverBufferSize;
 	}
-	
+
 }

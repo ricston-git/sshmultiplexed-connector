@@ -4,3 +4,6 @@
 <!-- BEGIN_INCLUDE(sshmultiplexedconnector:release) -->
 <sshmultiplexedconnector:release username="#[map-payload:username]" />
 <!-- END_INCLUDE(sshmultiplexedconnector:release) -->
+<!-- BEGIN_INCLUDE(sshmultiplexedconnector:is-connected) -->
+<sshmultiplexedconnector:is-connected username="#[map-payload:username]" maxtime="#[map-payload:maxtime]"/>
+<!-- END_INCLUDE(sshmultiplexedconnector:is-connected) -->

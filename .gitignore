@@ -7,8 +7,9 @@
 *.class
 *.log
 target/*
-.svn
+bin/*
 .classpath
 .project
 .settings/*
 .metadata
+.idea/*

@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.apache.log4j.Logger;
+import org.mule.api.ConnectionException;
+import org.mule.api.ConnectionExceptionCode;
 import org.mule.modules.ssh.multiplexer.exception.CommunicationException;
 
 import com.trilead.ssh2.Connection;
@@ -45,34 +47,38 @@ public class SshClient {
 		this.receiverBufferSize = details.getReceiverBufferSize();
 	}
 	
-	public void connect() throws IOException {
-		if (this.connection == null) {
-			
-			Connection connection = new Connection(this.details.getHost());
-			connection.connect();
-			boolean isAuthenticated = connection.authenticateWithPassword(this.details.getUsername(), this.details.getPassword());
-
-			if (isAuthenticated) {
-				this.connection = connection;
-			} else {
-				throw new IOException("Authentication failed.");
+	public void connect() throws ConnectionException {
+		try {
+			if (this.connection == null) {
+				
+				Connection connection = new Connection(this.details.getHost());
+				connection.connect();
+				boolean isAuthenticated = connection.authenticateWithPassword(this.details.getUsername(), this.details.getPassword());
+				
+				if (isAuthenticated) {
+					this.connection = connection;
+				} else {
+					throw new ConnectionException(ConnectionExceptionCode.INCORRECT_CREDENTIALS, "", "Invalid login");
+				}
+				
+				Session session = this.connection.openSession();
+				
+				if (this.details.isShellMode()) {
+					session.requestPTY("mulessh", 500, 500, 0, 0, null);
+					session.startShell();
+				}
+				
+				this.session = session;
+				
+				this.sender = session.getStdin();
+				this.receiver = session.getStdout();
+				this.error = session.getStderr();
+				
+				this.responseConsumerThread = new ResponseConsumerThread(this);
+				this.responseConsumerThread.start();
 			}
-
-			Session session = this.connection.openSession();
-			
-			if (this.details.isShellMode()) {
-				session.requestPTY("mulessh", 500, 500, 0, 0, null);
-				session.startShell();
-			}
-			
-			this.session = session;
-			
-			this.sender = session.getStdin();
-			this.receiver = session.getStdout();
-			this.error = session.getStderr();
-
-			this.responseConsumerThread = new ResponseConsumerThread(this);
-			this.responseConsumerThread.start();
+		} catch (IOException e) {
+			throw new ConnectionException(ConnectionExceptionCode.CANNOT_REACH, "", e.getMessage());
 		}
 	}
 
@@ -108,7 +114,6 @@ public class SshClient {
 	 */
 	public void send(String command) throws CommunicationException {
 		try {
-			this.connect();
 			this.sender.write(command.getBytes());
 		} catch (IOException e) {
 			String msg = "Error writing on the ssh channel";
@@ -121,7 +126,7 @@ public class SshClient {
 	}
 	
 	public void callback(String payload) {
-		this.details.getSshMultiplexedConnector().doCallback(payload, this.details.getUsername());
+		this.details.getSshMultiplexedConnector().doCallback(payload);
 	}
 
 	public Session getSession() {

@@ -23,8 +23,6 @@ package org.mule.modules.ssh.multiplexer;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
@@ -37,14 +35,19 @@ import org.mule.api.MuleEvent;
 import org.mule.api.MuleException;
 import org.mule.api.MuleMessage;
 import org.mule.api.annotations.Configurable;
-import org.mule.api.annotations.Module;
+import org.mule.api.annotations.Connect;
+import org.mule.api.annotations.Connector;
+import org.mule.api.annotations.Disconnect;
 import org.mule.api.annotations.Processor;
+import org.mule.api.annotations.ValidateConnection;
+import org.mule.api.annotations.display.Password;
+import org.mule.api.annotations.lifecycle.Start;
+import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.context.MuleContextAware;
 import org.mule.construct.Flow;
 import org.mule.modules.ssh.multiplexer.exception.CommunicationException;
-import org.mule.session.DefaultMuleSession;
 
 /**
  * Cloud Connector for ssh that is capable to handle multiple session from
@@ -56,7 +59,7 @@ import org.mule.session.DefaultMuleSession;
  *
  * @author marianogonzalez
  */
-@Module(name="sshmultiplexedconnector", schemaVersion="1.0")
+@Connector(name="ssh", schemaVersion="1.2.1", friendlyName="SSH",description="SSH connector")
 public class SshMultiplexedConnector implements MuleContextAware {
 	
 	private static final Logger logger = Logger.getLogger(SshMultiplexedConnector.class);
@@ -108,58 +111,55 @@ public class SshMultiplexedConnector implements MuleContextAware {
 	private Flow callbackFlow = null;
 
 	/**
-	 * Instance of {@link org.mule.modules.ssh.multiplexer.SshConnectionManager}
-	 * to delegate the connection handling
-	 * @see org.mule.modules.ssh.multiplexer.SshConnectionManager
-	 */
-	private SshConnectionManager connectionManager;
-	
-	/**
 	 * The size of the receiver buffer in bytes. Defaults to 8192
 	 * and must be greater or equal to 1
 	 */
 	@Configurable
 	@Optional
 	private Integer receiverBufferSize = 8192;
-
-	/**
-	 * Track a timestamp when a last successful callback was performed.
-	 */
-	private long lastCallBack = System.currentTimeMillis(); 
 	
-    /**
-     * Instanciates the connectionManager.
-     * Actual ssh connections are lazily created by 
-     * {@link org.mule.modules.ssh.multiplexer.SshMultiplexedConnector.connectionManager}
-     *
-     * @throws ConnectionException
-     */
-    @PostConstruct
-    public void connect() throws ConnectionException {
-        this.connectionManager = new SshConnectionManager();
+	/**
+	 * SSH Client class
+	 */
+	private SshClient client;
+	
+	/**
+	 * The username of the active user
+	 */
+	private String username;
+
+	@Start
+    public void init() {
+		this.callbackFlow = (Flow) this.muleContext.getRegistry().lookupFlowConstruct(this.callbackFlowName);
+		
+		if (this.callbackFlow == null) {
+			throw new IllegalArgumentException("Could not find callback flow with name " + this.callbackFlowName);
+		}
     }
     
-    private Flow callbackFlowLookup() {
-    	if (this.callbackFlow == null) {
-    		this.callbackFlow = (Flow) this.muleContext.getRegistry().lookupFlowConstruct(this.callbackFlowName);
-    		
-    		if (this.callbackFlow == null) {
-    			throw new IllegalArgumentException("Could not find callback flow with name " + this.callbackFlowName);
-    		}
-    		
-    	}
+    
+    /**
+     * Starts a connection
+     * @param username the username for the login
+     * @param password the password for the login
+     * @throws ConnectionException if an error occurs connecting
+     */
+    @Connect
+    public void connect(@ConnectionKey String username, @Password String password) throws ConnectionException {
+    	SshConnectionDetails details = this.newConnectionDetails();
+    	details.setUsername(username);
+    	details.setPassword(password);
     	
-    	return this.callbackFlow;
+    	this.client = new SshClient(details);
+    	this.client.connect();
     }
 
     /**
-     * Releases all the active ssh connections
-     * and deallocates 
-     * {@link org.mule.modules.ssh.multiplexer.SshMultiplexedConnector.connectionManager}
+     * Releases the connection
      */
+    @Disconnect
     public void disconnect() {
-    	this.connectionManager.releaseAll();
-    	this.connectionManager = null;
+    	this.client.disconnect();
     }
 
     /**
@@ -173,8 +173,6 @@ public class SshMultiplexedConnector implements MuleContextAware {
      * {@sample.xml ../../../doc/SshMultiplexedConnector-connector.xml.sample sshmultiplexedconnector:send}
      * 
      * @see org.mule.modules.ssh.multiplexer.SshMultiplexedConnector.release(String)
-     * @param username - the username to use at remote authentication
-     * @param password - the password to use at remote authentication
      * @param content - the content to send
      * @param breakLine - if true, then 
      * @return Accumulates text response from the server until the receiving buffer is empty and then
@@ -182,28 +180,11 @@ public class SshMultiplexedConnector implements MuleContextAware {
      * @throws Exception All but CommunicationException are thrown here.
      */
     @Processor
-    public void send(String username,
-    				 String password,
-    				 String content,
-    				 @Optional @Default("false")
-    				 boolean breakLine) throws Exception {
-    	
-    	SshConnectionDetails details = this.newConnectionDetails();
-    	details.setUsername(username);
-    	details.setPassword(password);
-
-    	SshClient client = null;
-    	
-    	try {
-    		client = this.connectionManager.getConnection(details);
-    	} catch (CommunicationException e) {
-    		this.doCallback("Could not connect", username);
-    	}
-    	
+    public void send(String content, @Optional @Default("false") boolean breakLine) throws Exception {
     	try {
     		client.send(breakLine ? content + "\n" : content);
     	} catch (CommunicationException e) {
-    		this.doCallback(ExceptionUtils.getFullStackTrace(e), username);
+    		this.doCallback(ExceptionUtils.getFullStackTrace(e));
     	}
     }
     
@@ -211,7 +192,7 @@ public class SshMultiplexedConnector implements MuleContextAware {
      * sends the message to the responseFlow if not null
      * @param message - the message. If null then this method does nothing
      */
-    protected void doCallback(String response, String username) {
+    protected void doCallback(String response) {
     	if (!StringUtils.isEmpty(response)) {
     		
     		Map<String, Object> inbound = new HashMap<String, Object>();
@@ -220,65 +201,23 @@ public class SshMultiplexedConnector implements MuleContextAware {
     		MuleMessage message = new DefaultMuleMessage(response, inbound, null, null, this.muleContext);
     		message.setOutboundProperty(SSH_CALLBACK_USER, username);
     		
-    		MuleEvent event = new DefaultMuleEvent(message, MessageExchangePattern.REQUEST_RESPONSE, new DefaultMuleSession(this.callbackFlow, this.muleContext));
+    		MuleEvent event = new DefaultMuleEvent(message, MessageExchangePattern.REQUEST_RESPONSE, this.callbackFlow);
     		
     		try {
-    			this.callbackFlowLookup().process(event).getMessage();
-    			this.lastCallBack = System.currentTimeMillis();
+    			this.callbackFlow.process(event).getMessage();
     		} catch (MuleException e) {
-    			if (logger.isDebugEnabled()) {
-    				logger.debug("Error invoking callback flow", e);
-    			}
-				logger.error("Error invoking callback flow");
+				logger.error("Error invoking callback flow", e);
     			throw new RuntimeException(e);
     		}
     	}
     }
     
     /**
-     * Releases the ssh connection associated with the username (if any).
-     * It does so by invoking {@link org.mule.modules.ssh.multiplexer.SshConnectionManager.release(String)}
-     * {@sample.xml ../../../doc/SshMultiplexedConnector-connector.xml.sample sshmultiplexedconnector:release}
-     * 
-     * @param username - the username whose connection we want to free
-     * @see org.mule.modules.ssh.multiplexer.SshConnectionManager.release(String)
+     * Returns true if the connection is active
      */
-    @Processor
-    public void release(String username) {
-    	this.connectionManager.release(username);
-    }
-    
-    /**
-     * Verifies if the ssh connection associated with the username is connected, or optionally if no data was received for an extended time.
-     * It does so by invoking {@link org.mule.modules.ssh.multiplexer.SshConnectionManager.isConnected(String)}
-     * {@sample.xml ../../../doc/SshMultiplexedConnector-connector.xml.sample sshmultiplexedconnector:is-connected}
-     * 
-     * @param username - the username whose connection we want to check
-     * @param maxtime  - If greater than 0 an additional time check is performed verifying when data was last received on this connection.
-     * 					 If data received was longer than maxtime seconds ago, 'STALE' is returned.
-     * 					 STALE means UP - but no data was received for a while.
-     * @return UP, DOWN, STALE (if maxtime was provided)
-     * @see org.mule.modules.ssh.multiplexer.SshConnectionManager.isConnected(String)
-     */
-    @Processor
-    public String isConnected(	String username, 
-    							@Optional @Default("0") 
-    							long maxtime) {
-    	String result; 
-    	if (this.connectionManager.isConnected(username)) {
-        	if (maxtime > 0 && (System.currentTimeMillis() - this.lastCallBack) > (maxtime*1000) ) {
-        		result = "STALE";
-        	}
-        	else {
-        		result = "UP";
-        	}
-    	}
-    	else {
-    		result = "DOWN";
-    	}
-
-    	logger.info("Connection '" + username+"@"+this.host + "' is '" + result + "'");
-    	return result;
+    @ValidateConnection
+    public boolean isConnected() {
+    	return this.client.isConnected();
     }
     
     /**

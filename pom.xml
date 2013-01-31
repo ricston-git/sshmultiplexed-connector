@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <groupId>org.mule.tools.devkit</groupId>
-        <artifactId>mule-devkit-parent</artifactId>
-        <version>3.3.1</version>
-    </parent>
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.mule.modules.ssh.multiplexer</groupId>
@@ -13,21 +8,40 @@
 	<version>1.2.1-SNAPSHOT</version>
 	<packaging>mule-module</packaging>
 	<name>Mule SSH Multiplexer</name>
+	
+    <parent>
+        <groupId>org.mule.tools.devkit</groupId>
+        <artifactId>mule-devkit-parent</artifactId>
+        <version>3.3.2</version>
+    </parent>
 
 	<properties>
+        <junit.version>4.9</junit.version>
+        <mockito.version>1.8.2</mockito.version>
+        <mule.devkit.version>3.3.2</mule.devkit.version>
+        <mule.version>3.3.0</mule.version>
+        <jdk.version>1.6</jdk.version>
         <category>Community</category>
         <licensePath>LICENSE.md</licensePath>
-        <license.skip>true</license.skip>
-        <!-- 
-        package fails:
+        <jersey.version>1.6</jersey.version>
         <devkit.studio.package.skip>false</devkit.studio.package.skip>
-         -->
 	</properties>
+	
+	<repositories>
+	  <repository>
+	    <id>mule-ee-snapshot</id>
+	    <name>EE Repository Snapshots</name>	
+	    <url> https://repository.mulesoft.org/nexus/content/repositories/snapshots </url>
+	    <layout>default</layout>
+	  </repository>
+	  <repository>
+	    <id>mule-ee</id>
+	    <name>EE Repository Releases</name>	
+	    <url> https://repository.mulesoft.org/nexus/content/repositories/releases </url>
+	    <layout>default</layout>
+	  </repository>
+	</repositories>
 
-	<dependencies>
-		<!-- ADD SSH LIB AS DEPENDENCY -->		
-    </dependencies>
-		
 	<scm>
 		<connection>scm:git:git://github.com/mulesoft/sshmultiplexed-connector.git</connection>
 		<developerConnection>

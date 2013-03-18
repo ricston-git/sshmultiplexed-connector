@@ -19,7 +19,7 @@
         <junit.version>4.9</junit.version>
         <mockito.version>1.8.2</mockito.version>
         <mule.devkit.version>3.4-SNAPSHOT</mule.devkit.version>
-        <mule.version>3.3.0</mule.version>
+        <mule.version>3.3.2</mule.version>
         <jdk.version>1.6</jdk.version>
         <category>Community</category>
         <licensePath>LICENSE.md</licensePath>

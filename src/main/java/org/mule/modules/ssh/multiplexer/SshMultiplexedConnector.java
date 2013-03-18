@@ -1,18 +1,9 @@
 /**
- * Mule Development Kit
- * Copyright 2010-2011 (c) MuleSoft, Inc.  All rights reserved.  http://www.mulesoft.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * (c) 2003-2012 MuleSoft, Inc. This software is protected under international
+ * copyright law. All use of this software is subject to MuleSoft's Master
+ * Subscription Agreement (or other Terms of Service) separately entered
+ * into between you and MuleSoft. If such an agreement is not in
+ * place, you may not use the software.
  */
 
 /**
@@ -36,6 +27,7 @@ import org.mule.api.MuleException;
 import org.mule.api.MuleMessage;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Connect;
+import org.mule.api.annotations.ConnectionIdentifier;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Disconnect;
 import org.mule.api.annotations.Processor;
@@ -161,6 +153,22 @@ public class SshMultiplexedConnector implements MuleContextAware {
     public void disconnect() {
     	this.client.disconnect();
     }
+    
+    /**
+     * Returns true if the connection is active
+     */
+    @ValidateConnection
+    public boolean isConnected() {
+    	return this.client.isConnected();
+    }
+    
+    /**
+     * @return the username of the current connection
+     */
+    @ConnectionIdentifier
+    public String getConnectionIdentifier() {
+    	return this.client.getDetails().getUsername();
+    }
 
     /**
      * creates/reuses a ssh connection to the host login in as username.
@@ -210,14 +218,6 @@ public class SshMultiplexedConnector implements MuleContextAware {
     			throw new RuntimeException(e);
     		}
     	}
-    }
-    
-    /**
-     * Returns true if the connection is active
-     */
-    @ValidateConnection
-    public boolean isConnected() {
-    	return this.client.isConnected();
     }
     
     /**

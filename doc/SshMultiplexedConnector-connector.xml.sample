@@ -1,9 +1,3 @@
 <!-- BEGIN_INCLUDE(sshmultiplexedconnector:send) -->
-    <sshmultiplexedconnector:send content="#[map-payload:content]" username="#[map-payload:username]" password="#[map-payload:password]"/>
+    <ssh:send content="#[map-payload:content]" />
 <!-- END_INCLUDE(sshmultiplexedconnector:send) -->
-<!-- BEGIN_INCLUDE(sshmultiplexedconnector:release) -->
-<sshmultiplexedconnector:release username="#[map-payload:username]" />
-<!-- END_INCLUDE(sshmultiplexedconnector:release) -->
-<!-- BEGIN_INCLUDE(sshmultiplexedconnector:is-connected) -->
-<sshmultiplexedconnector:is-connected username="#[map-payload:username]" maxtime="#[map-payload:maxtime]"/>
-<!-- END_INCLUDE(sshmultiplexedconnector:is-connected) -->

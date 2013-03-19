@@ -13,13 +13,11 @@ package org.mule.modules;
 
 import junit.framework.Assert;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mule.api.MuleEvent;
 import org.mule.construct.Flow;
 import org.mule.tck.junit4.FunctionalTestCase;
 
-@Ignore(value="Standard generated tests only")
 public class SshMultiplexedConnectorTest extends FunctionalTestCase
 {
     @Override
@@ -29,11 +27,17 @@ public class SshMultiplexedConnectorTest extends FunctionalTestCase
     }
 
     @Test
-    public void testFlow() throws Exception
+    public void singleCall() throws Exception
+    {
+    	runFlowAndExpect("singleCallTest");
+    	Thread.sleep(5000L);
+    }
+    
+    @Test
+    public void shellMode() throws Exception
     {
     	runFlowAndExpect("testFlow");
     	Thread.sleep(5000L);
-    	runFlowAndExpect("release");
     	
     }
     

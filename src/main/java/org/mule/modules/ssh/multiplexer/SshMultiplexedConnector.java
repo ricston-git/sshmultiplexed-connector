@@ -61,18 +61,6 @@ public class SshMultiplexedConnector implements MuleContextAware {
 	private MuleContext muleContext;
 	
 	/**
-	 * IP address for the target host
-	 */
-	@Configurable
-	private String host;
-	
-	/**
-	 * TCP port in which the host is listening
-	 */
-	@Configurable
-	private int port;
-	
-	/**
 	 * message timeout
 	 */
 	@Configurable
@@ -134,13 +122,17 @@ public class SshMultiplexedConnector implements MuleContextAware {
      * Starts a connection
      * @param username the username for the login
      * @param password the password for the login
+     * @param host the address for the target host
+     * @param port TCP port number in which the host is listening
      * @throws ConnectionException if an error occurs connecting
      */
     @Connect
-    public void connect(@ConnectionKey String username, @Password String password) throws ConnectionException {
+    public void connect(@ConnectionKey String username, @Password String password, String host, Integer port) throws ConnectionException {
     	SshConnectionDetails details = this.newConnectionDetails();
     	details.setUsername(username);
     	details.setPassword(password);
+    	details.setHost(host);
+    	details.setPort(port);
     	
     	this.client = new SshClient(details);
     	this.client.connect();
@@ -159,7 +151,7 @@ public class SshMultiplexedConnector implements MuleContextAware {
      */
     @ValidateConnection
     public boolean isConnected() {
-    	return this.client.isConnected();
+    	return this.client != null && this.client.isConnected();
     }
     
     /**
@@ -229,8 +221,6 @@ public class SshMultiplexedConnector implements MuleContextAware {
      */
     private SshConnectionDetails newConnectionDetails() {
     	SshConnectionDetails details = new SshConnectionDetails();
-    	details.setHost(this.host);
-    	details.setPort(port);
     	details.setTimeout(timeout);
     	details.setShellMode(this.shellMode);
     	details.setSshMultiplexedConnector(this);
@@ -239,28 +229,6 @@ public class SshMultiplexedConnector implements MuleContextAware {
     	return details;
     }
     
-	public void setHost(String host) {
-		this.host = host;
-	}
-
-	/**
-	 * @return the host
-	 */
-	public String getHost() {
-		return host;
-	}
-
-	/**
-	 * @return the port
-	 */
-	public int getPort() {
-		return port;
-	}
-
-	public void setPort(int port) {
-		this.port = port;
-	}
-
 	/**
 	 * @return the timeout
 	 */

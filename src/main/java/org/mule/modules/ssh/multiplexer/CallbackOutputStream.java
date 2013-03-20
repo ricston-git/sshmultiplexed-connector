@@ -26,18 +26,6 @@ public class CallbackOutputStream extends ByteArrayOutputStream {
 	}
 	
 	@Override
-	public synchronized void write(int b) {
-		super.write(b);
-		if (b == '\n') {
-			try {
-				this.flush();
-			} catch (IOException e) {
-				throw new RuntimeException("Exception while flushing callback stream", e);
-			}
-		}
-	}
-	
-	@Override
 	public synchronized void flush() throws IOException {
 		this.connector.doCallback(new String(this.buf));
 		this.reset();

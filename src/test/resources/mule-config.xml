@@ -30,8 +30,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd 
-http://www.mulesoft.org/schema/mule/ssh http://www.mulesoft.org/schema/mule/ssh/current/mule-ssh.xsd
-">
+http://www.mulesoft.org/schema/mule/ssh http://www.mulesoft.org/schema/mule/ssh/current/mule-ssh.xsd">
 
 	<context:property-placeholder location="ssh.test.properties" /> 
     
@@ -53,12 +52,12 @@ http://www.mulesoft.org/schema/mule/ssh http://www.mulesoft.org/schema/mule/ssh/
 	
 	
     <flow name="singleCallTest" doc:name="flow-sync">
-        <ssh:send username="${ssh.user}" password="${ssh.pass}" content="echo hello from ssh!" host="${ssh.host}" port="${ssh.port}" config-ref="singleMode"/>
+        <ssh:send username="${ssh.user}" password="${ssh.pass}" content="ls" host="${ssh.host}" port="${ssh.port}" config-ref="singleMode"/>
     </flow>
     
     <flow name="shellModeTest">
-        <ssh:send username="${ssh.user}" password="${ssh.pass}" host="${ssh.host}" port="${ssh.port}" content="cd test" breakLine="true" config-ref="shellMode" />
-        <ssh:send username="${ssh.user}" password="${ssh.pass}" host="${ssh.host}" port="${ssh.port}" content="cat hola.txt" breakLine="true" config-ref="shellMode" />
+        <ssh:send username="${ssh.user}" password="${ssh.pass}" host="${ssh.host}" port="${ssh.port}" content="cd Documents" breakLine="true" config-ref="shellMode" />
+        <ssh:send username="${ssh.user}" password="${ssh.pass}" host="${ssh.host}" port="${ssh.port}" content="ls" breakLine="true" config-ref="shellMode" />
     </flow>
     
     <flow name="flow-callback">

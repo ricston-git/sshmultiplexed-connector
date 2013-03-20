@@ -1,3 +1,0 @@
-<!-- BEGIN_INCLUDE(sshmultiplexedconnector:send) -->
-    <ssh:send content="#[map-payload:content]" />
-<!-- END_INCLUDE(sshmultiplexedconnector:send) -->

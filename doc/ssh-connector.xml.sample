@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(ssh:send) -->
+    <ssh:send content="ls" />
+<!-- END_INCLUDE(ssh:send) -->
